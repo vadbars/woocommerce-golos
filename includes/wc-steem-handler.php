@@ -40,7 +40,7 @@ class WC_Steem_Handler {
 	public static function update_rates() {
 		$rates = get_option('wc_steem_rates', array());
 
-		$response = wp_remote_get('https://poloniex.com/public?command=returnTicker');
+		$response = wp_remote_get('https://bittrex.com/public?command=returnTicker');
 
 		if (is_array($response)) {
 			$tickers = json_decode(wp_remote_retrieve_body($response), true);
@@ -49,11 +49,11 @@ class WC_Steem_Handler {
 				$rates['BTC_USD'] = $tickers['USDT_BTC']['last'];
 
 				if (isset($tickers['BTC_STEEM']['last'])) {
-					$rates['STEEM_USD'] = $tickers['BTC_STEEM']['last'] * $rates['BTC_USD'];
+					$rates['GOLOS_USD'] = $tickers['BTC_GOLOS']['last'] * $rates['BTC_USD'];
 				}
 
 				if (isset($tickers['BTC_SBD']['last'])) {
-					$rates['SBD_USD'] = $tickers['BTC_SBD']['last'] * $rates['BTC_USD'];
+					$rates['GNG_USD'] = $tickers['BTC_GBG']['last'] * $rates['BTC_USD'];
 				}
 			}
 		}
@@ -67,12 +67,12 @@ class WC_Steem_Handler {
 				foreach ($tickers['rates'] as $to_currency_symbol => $to_currency_value) {
 					$rates["USD_{$to_currency_symbol}"] = $to_currency_value;
 
-					if (isset($rates['STEEM_USD'])) {
-						$rates["STEEM_{$to_currency_symbol}"] = $rates['STEEM_USD'] * $to_currency_value;
+					if (isset($rates['GOLOS_USD'])) {
+						$rates["GOLOS_{$to_currency_symbol}"] = $rates['GOLOS_USD'] * $to_currency_value;
 					}
 
-					if (isset($rates['SBD_USD'])) {
-						$rates["SBD_{$to_currency_symbol}"] = $rates['SBD_USD'] * $to_currency_value;
+					if (isset($rates['GBG_USD'])) {
+						$rates["GBG_{$to_currency_symbol}"] = $rates['GBG_USD'] * $to_currency_value;
 					}
 				}
 			}
