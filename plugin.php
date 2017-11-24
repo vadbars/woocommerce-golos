@@ -34,8 +34,8 @@ function wc_steem_activate() {
 
 	if ( ! isset($settings['accepted_currencies'])) {
 		$settings['accepted_currencies'] = array(
-			'STEEM',
-			'SBD',
+			'GOLOS',
+			'GBG',
 		);
 	}
 
