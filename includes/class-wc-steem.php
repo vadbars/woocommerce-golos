@@ -87,6 +87,6 @@ class WC_Steem {
 			self::set($key, '');
 		}
 
-		self::set('amount_currency', 'STEEM');
+		self::set('amount_currency', 'GOLOS');
 	}
 }
