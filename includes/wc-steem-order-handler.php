@@ -61,6 +61,7 @@ class WC_Steem_Order_Handler {
 			</table>
 
 			<p>Please don't forge to include the <strong>"MEMO"</strong> when making a transfer for this transaction to Steem.</p>
+			<p><a href="https://golos.io/@vadbars/transfers/" target=_blank>Go to the Wallet (Golos.io)</a></p>
 
 			<?php do_action( 'wc_steem_order_payment_details_after_table', $order ); ?>
 
