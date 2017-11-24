@@ -40,7 +40,8 @@ class WC_Steem_Handler {
 	public static function update_rates() {
 		$rates = get_option('wc_steem_rates', array());
 
-		$response = wp_remote_get('https://bittrex.com/public?command=returnTicker');
+//		$response = wp_remote_get('https://poloniex.com/public?command=returnTicker');
+		$response = wp_remote_get('https://bittrex.com/api/v1.1/public/getmarkets');
 
 		if (is_array($response)) {
 			$tickers = json_decode(wp_remote_retrieve_body($response), true);
@@ -48,12 +49,12 @@ class WC_Steem_Handler {
 			if (isset($tickers['USDT_BTC']['last'])) {
 				$rates['BTC_USD'] = $tickers['USDT_BTC']['last'];
 
-				if (isset($tickers['BTC_STEEM']['last'])) {
+				if (isset($tickers['BTC_GOLOS']['last'])) {
 					$rates['GOLOS_USD'] = $tickers['BTC_GOLOS']['last'] * $rates['BTC_USD'];
 				}
 
-				if (isset($tickers['BTC_SBD']['last'])) {
-					$rates['GNG_USD'] = $tickers['BTC_GBG']['last'] * $rates['BTC_USD'];
+				if (isset($tickers['BTC_GBG']['last'])) {
+					$rates['GBG_USD'] = $tickers['BTC_GBG']['last'] * $rates['BTC_USD'];
 				}
 			}
 		}
