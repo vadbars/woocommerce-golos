@@ -68,7 +68,7 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 				'title'       => __('Title', 'wc-steem'),
 				'type'        => 'text',
 				'description' => __('This controls the title which the user sees during checkout.', 'wc-steem'),
-				'default'     => __('Steem', 'wc-steem' ),
+				'default'     => __('Golos', 'wc-steem' ),
 				'desc_tip'    => true,
 			),
 			'description' => array(
@@ -97,7 +97,7 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 			'show_insightful' => array(
 				'title'   => __('Enable insightful prices on products', 'wc-steem'),
 				'type'    => 'checkbox',
-				'label'   => __('Shows an insightful prices on products that displays the accepted currencies such as SBD and/or STEEM rates converted from the product price.', 'wc-steem'),
+				'label'   => __('Shows an insightful prices on products that displays the accepted currencies such as GBG and/or GOLOS rates converted from the product price.', 'wc-steem'),
 				'default' => 'no'
 			),
 		);
@@ -280,7 +280,7 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 	 */
 	public function validate_fields() {
 
-		$amount_currency = isset($_POST[$this->field_id('amount_currency')]) ? $_POST[$this->field_id('amount_currency')] : 'STEEM';
+		$amount_currency = isset($_POST[$this->field_id('amount_currency')]) ? $_POST[$this->field_id('amount_currency')] : 'GOLOS';
 		$from_currency_symbol = wc_steem_get_base_fiat_currency();
 
 		if (wc_steem_is_accepted_currency($amount_currency)) {
