@@ -53,7 +53,8 @@ class WC_Steem_Transaction_Transfer {
 					'amount_symbol' => $data['amount_currency'],
 					'limit' => 1,
 				),
-				'http://steemful.com/api/v1/transactions/transfers'
+//				'http://steemful.com/api/v1/transactions/transfers'
+				'http://ropox.tools/steemjs/api/database_api/get_account_history?blockchain=GOLOS&account=vadbars&from=-1&limit=1'
 			)
 		);
 
