@@ -20,9 +20,9 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 	public function __construct() {
 		$this->id                 = 'wc_steem';
 		$this->has_fields         = true;
-		$this->order_button_text  = __('Proceed to Steem', 'wc-steem');
-		$this->method_title       = __('Steem', 'wc-steem' );
-		$this->method_description = sprintf(__('Process payments via Steem.', 'wc-steem'), '<a href="' . admin_url('admin.php?page=wc-status') . '">', '</a>');
+		$this->order_button_text  = __('Proceed to Golos', 'wc-steem');
+		$this->method_title       = __('Golos', 'wc-steem' );
+		$this->method_description = sprintf(__('Process payments via Golos.', 'wc-steem'), '<a href="' . admin_url('admin.php?page=wc-status') . '">', '</a>');
 		$this->supports           = array(
 			'products',
 			'refunds'
@@ -61,7 +61,7 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 			'enabled' => array(
 				'title'   => __('Enable/Disable', 'wc-steem'),
 				'type'    => 'checkbox',
-				'label'   => __('Enable WooCommerce Steem', 'wc-steem'),
+				'label'   => __('Enable WooCommerce Golos', 'wc-steem'),
 				'default' => 'yes'
 			),
 			'title' => array(
@@ -76,19 +76,19 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 				'type'        => 'text',
 				'desc_tip'    => true,
 				'description' => __('This controls the description which the user sees during checkout.', 'wc-steem'),
-				'default'     => __('Pay via Steem', 'wc-steem')
+				'default'     => __('Pay via Golos', 'wc-steem')
 			),
 			'payee' => array(
 				'title'       => __('Payee', 'wc-steem'),
 				'type'        => 'text',
-				'description' => __('This is your Steem username where your customers will pay you.', 'wc-steem'),
+				'description' => __('This is your Golos username where your customers will pay you.', 'wc-steem'),
 				'default'     => '',
 				'desc_tip'    => true,
 			),
 			'accepted_currencies' => array(
 				'title'       => __('Accepted Currencies', 'wc-steem'),
 				'type'        => 'multiselect',
-				'description' => __('Select the Steem currencies you will accept.', 'wc-steem'),
+				'description' => __('Select the Golos currencies you will accept.', 'wc-steem'),
 				'default'     => '',
 				'desc_tip'    => true,
 				'options'     => $accepted_currencies,
@@ -115,18 +115,18 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 
 		if ( ! $this->payee) {
 			if (is_super_admin()) {
-				_e('Please set your Steem username at the WooCommerce Settings to get paid via Steem.', 'wc-steem');
+				_e('Please set your Golos username at the WooCommerce Settings to get paid via Golos.', 'wc-steem');
 			}
 			else {
-				_e('Sorry, Steem payments is not available right now.', 'wc-steem');
+				_e('Sorry, Golos payments is not available right now.', 'wc-steem');
 			}
 		}
 		elseif ( ! wc_steem_get_accepted_currencies()) {
 			if (is_super_admin()) {
-				_e('Please set one or more accepted currencies at the WooCommerce Settings to get paid via Steem.', 'wc-steem');
+				_e('Please set one or more accepted currencies at the WooCommerce Settings to get paid via Golos.', 'wc-steem');
 			}
 			else {
-				_e('Sorry, Steem payments is not available right now.', 'wc-steem');
+				_e('Sorry, Golos payments is not available right now.', 'wc-steem');
 			}
 		} else {
 			$description = $this->get_description();
@@ -225,7 +225,7 @@ class WC_Gateway_Steem extends WC_Payment_Gateway {
 		$icon_html = '';
 		$icon      = apply_filters('wc_steem_icon', WC_STEEM_DIR_URL . '/assets/img/steem-64.png');
 
-		$icon_html .= '<img src="' . esc_attr($icon) . '" alt="' . esc_attr__('Steem acceptance mark', 'wc-steem') . '" />';
+		$icon_html .= '<img src="' . esc_attr($icon) . '" alt="' . esc_attr__('Golos acceptance mark', 'wc-steem') . '" />';
 
 		return apply_filters('woocommerce_gateway_icon', $icon_html, $this->id);
 	}
