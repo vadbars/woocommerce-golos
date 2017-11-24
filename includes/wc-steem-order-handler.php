@@ -33,7 +33,7 @@ class WC_Steem_Order_Handler {
 
 		<section class="woocommerce-steem-order-payment-details">
 
-			<h2 class="woocommerce-steem-order-payment-details__title"><?php _e( 'Steem Payment details', 'wc-steem' ); ?></h2>
+			<h2 class="woocommerce-steem-order-payment-details__title"><?php _e( 'Golos Payment details', 'wc-steem' ); ?></h2>
 
 			<table class="woocommerce-table woocommerce-table--steem-order-payment-details shop_table steem_order_payment_details">
 				<tbody>
@@ -70,16 +70,16 @@ class WC_Steem_Order_Handler {
 		<?php if ($transfer = get_post_meta($order->id, '_wc_steem_transaction_transfer', true)) : ?>
 		<section class="woocommerce-steem-order-transaction-details">
 
-			<h2 class="woocommerce-steem-order-transaction-details__title"><?php _e( 'Steem Transfer details', 'wc-steem' ); ?></h2>
+			<h2 class="woocommerce-steem-order-transaction-details__title"><?php _e( 'Golos Transfer details', 'wc-steem' ); ?></h2>
 
 			<table class="woocommerce-table woocommerce-table--steem-order-transaction-details shop_table steem_order_payment_details">
 				<tbody>
 					<tr>
-						<th><?php _e('Steem Transaction ID', 'wc-steem'); ?></th>
+						<th><?php _e('Golos Transaction ID', 'wc-steem'); ?></th>
 						<td><?php echo $transfer['tx_id']; ?></td>
 					</tr>
 					<tr>
-						<th><?php _e('Steem Transfer ID', 'wc-steem'); ?></th>
+						<th><?php _e('Golos Transfer ID', 'wc-steem'); ?></th>
 						<td><?php echo $transfer['ID']; ?></td>
 					</tr>
 					<tr>
