@@ -9,7 +9,7 @@
  * Requires at least: 4.1
  * Tested up to: 4.7.5
  *
- * Text Domain: wc-golos
+ * Text Domain: wc-steem
  */
 
 // Exit if accessed directly
@@ -19,18 +19,18 @@ define('WC_STEEM_VERSION', '0.0.1');
 define('WC_STEEM_DIR_PATH', trailingslashit(plugin_dir_path(__FILE__)));
 define('WC_STEEM_DIR_URL', trailingslashit(plugin_dir_url(__FILE__)));
 
-register_activation_hook(__FILE__, 'wc_golos_activate');
-register_deactivation_hook(__FILE__, 'wc_golos_deactivate');
+register_activation_hook(__FILE__, 'wc_steem_activate');
+register_deactivation_hook(__FILE__, 'wc_steem_deactivate');
 
 /** 
  * Plugin activation
  *
  * @since 1.0.0
  */
-function wc_golos_activate() {
-	do_action('wc_golos_activated');
+function wc_steem_activate() {
+	do_action('wc_steem_activated');
 
-	$settings = get_option('woocommerce_wc_golos_settings', array());
+	$settings = get_option('woocommerce_wc_steem_settings', array());
 
 	if ( ! isset($settings['accepted_currencies'])) {
 		$settings['accepted_currencies'] = array(
@@ -42,7 +42,7 @@ function wc_golos_activate() {
 	update_option('woocommerce_wc_steem_settings', $settings);
 
 	// Make sure to have fresh currency rates
-	update_option('wc_golos_rates', array());
+	update_option('wc_steem_rates', array());
 }
 
 /**
@@ -50,11 +50,11 @@ function wc_golos_activate() {
  *
  * @since 1.0.0
  */
-function wc_golos_deactivate() {
-	do_action('wc_golos_deactivated');
+function wc_steem_deactivate() {
+	do_action('wc_steem_deactivated');
 
 	// Make sure to have fresh currency rates
-	update_option('wc_golos_rates', array());
+	update_option('wc_steem_rates', array());
 }
 
 /**
@@ -62,14 +62,14 @@ function wc_golos_deactivate() {
  * 
  * @since 1.0.0
  */
-function wc_golos_init() {
+function wc_steem_init() {
 
 	/**
 	 * Fires before including the files
 	 *
 	 * @since 1.0.0
 	 */
-	do_action('wc_golos_pre_init');
+	do_action('wc_steem_pre_init');
 
 	require_once(WC_STEEM_DIR_PATH . 'libraries/wordpress.php');
 	require_once(WC_STEEM_DIR_PATH . 'libraries/woocommerce.php');
@@ -91,9 +91,9 @@ function wc_golos_init() {
 	 *
 	 * @since 1.0.0
 	 */
-	do_action('wc_golos_init');
+	do_action('wc_steem_init');
 }
-add_action('plugins_loaded', 'wc_golos_init');
+add_action('plugins_loaded', 'wc_steem_init');
 
 
 
@@ -106,8 +106,8 @@ add_action('plugins_loaded', 'wc_golos_init');
  * @return array $gateways
  */
 function wc_golos_register_gateway($gateways) {
-	$gateways[] = 'WC_Gateway_Golos';
+	$gateways[] = 'WC_Gateway_Steem';
 
 	return $gateways;
 }
-add_filter('woocommerce_payment_gateways', 'wc_golos_register_gateway');
+add_filter('woocommerce_payment_gateways', 'wc_steem_register_gateway');
