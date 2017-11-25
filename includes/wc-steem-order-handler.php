@@ -60,8 +60,13 @@ class WC_Steem_Order_Handler {
 				</tbody>
 			</table>
 
-			<p>Please don't forge to include the <strong>"MEMO"</strong> when making a transfer for this transaction to Steem.</p>
-			<p><a href="https://golos.io/@vadbars/transfers/" target=_blank>Go to the Wallet (Golos.io)</a></p>
+						<!-- p>Please don't forge to include the <strong>"MEMO"</strong> when making a transfer for this transaction to Steem.</p -->
+			<p>&nbsp;</p>
+			<quote><h3>Для завершения заказа перейдите, пожалуйста, на страницу <a href="https://golos.io/@ВАШ_АККАУНТ/transfers" title="Доступна по адресу https://golos.io/@ВАШ_АККАУНТ/transfers" target=_blank>Кошелек</a> на Golos.io и переведите пользователю <strong>chainstore</strong> указанную выше сумму в токенах GOLOS или GBG.</h3>
+			<h4>Не забудьте указать значение <strong>Memo</strong> (указано выше) в соответствующем поле перевода!</h4>
+			<h3>После оплаты вам на email поступит сообщение о дальшейших действиях.</h3>
+			</quote>
+			<p>&nbsp;</p>
 
 			<?php do_action( 'wc_steem_order_payment_details_after_table', $order ); ?>
 
