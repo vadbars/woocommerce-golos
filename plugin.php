@@ -15,9 +15,9 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define('WC_GOLOS_VERSION', '0.0.1');
-define('WC_GOLOS_DIR_PATH', trailingslashit(plugin_dir_path(__FILE__)));
-define('WC_GOLOS_DIR_URL', trailingslashit(plugin_dir_url(__FILE__)));
+define('WC_STEEM_VERSION', '0.0.1');
+define('WC_STEEM_DIR_PATH', trailingslashit(plugin_dir_path(__FILE__)));
+define('WC_STEEM_DIR_URL', trailingslashit(plugin_dir_url(__FILE__)));
 
 register_activation_hook(__FILE__, 'wc_golos_activate');
 register_deactivation_hook(__FILE__, 'wc_golos_deactivate');
