@@ -30,9 +30,13 @@ class WC_Steem_Order_Handler {
 
 		if ($order->payment_method != 'wc_steem') 
 			return; ?>
-
 		<section class="woocommerce-steem-order-payment-details">
-
+		<h3>* Для завершения заказа перейдите в <a href="https://steemit.com/@ВАШ_АККАУНТ/transfers" title="Доступен по адресу https://steemit.com/@ВАШ_АККАУНТ/transfers" target=_blank><b>Кошелек на Steemit.com</b></a> и переведите пользователю <strong>chainstore</strong> токены на сумму <strong><?php echo wc_order_get_steem_amount($order_id); ?> <?php echo wc_order_get_steem_amount_currency($order_id); ?></strong>.</h3>
+		<h3>Не забудьте указать в поле Memo (Примечание) значение <strong><?php echo wc_order_get_steem_memo($order_id); ?></strong></h3>
+		<h3>* Либо воспользуйтесь <a href="https://v2.steemconnect.com/sign/transfer?to=chainstore&amount=<?php echo wc_order_get_steem_amount($order_id); ?>%20<?php echo wc_order_get_steem_amount_currency($order_id); ?>&memo=<?php echo wc_order_get_steem_memo($order_id); ?> target=_blank"><b>прямой ссылкой</b></a> (авторизация через Steemconnect).</h3>
+			
+		<h3>После оплаты вам на почту поступит письмо с информацией о дальнейших действиях.</h3>
+		<p>&nbsp;</p>
 			<h2 class="woocommerce-steem-order-payment-details__title"><?php _e( 'Golos Payment details', 'wc-steem' ); ?></h2>
 
 			<table class="woocommerce-table woocommerce-table--steem-order-payment-details shop_table steem_order_payment_details">
